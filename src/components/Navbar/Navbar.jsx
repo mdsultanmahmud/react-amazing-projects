@@ -38,7 +38,7 @@ const Navbar = () => {
             <Link to={"/calculator"}>Calculator</Link>
           </li>
           <li onClick={() => setShowLinks(false)}>
-            <Link to={"/"}>Calculator</Link>
+            <Link to={"/slider"}>Slider</Link>
           </li>
           <li onClick={() => setShowLinks(false)}>
             <Link to={"/"}>Calculator</Link>
