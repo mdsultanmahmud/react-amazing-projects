@@ -6,6 +6,8 @@ import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
 import { FaStar } from "react-icons/fa";
 import { FaRegStar } from "react-icons/fa";
+import { MdOutlineFavorite, MdOutlineFavoriteBorder } from "react-icons/md";
+import { FaCartPlus } from "react-icons/fa";
 
 // import image from the local file
 import sliderFood__1 from "../../../assets/slider/sliderFood__1.png";
@@ -87,7 +89,6 @@ const SliderPage = () => {
       price: "$6.49",
     },
   ];
-
   return (
     <div className="slider__wrapper">
       <h1 className="slider__title">Our All Products</h1>
@@ -122,7 +123,11 @@ const SliderPage = () => {
               <img src={product?.productsImg} />
               <div className="slider--item__content">
                 <h4 className="slider--item__title">{product?.title}</h4>
-                <p className="slider--item__desc">{product?.description}</p>
+                <p className="slider--item__desc">
+                  {product?.description && product.description.length > 70
+                    ? product.description.slice(0, 70)
+                    : product.description}
+                </p>
                 <p className="slider--item__price">{product?.price}</p>
                 <div className="slider--item__ratings__container">
                   <FaStar size={22} />
@@ -132,8 +137,14 @@ const SliderPage = () => {
                   <FaRegStar size={22} />
                 </div>
               </div>
-
-              <button className="slider--item__button">Add to Card</button>
+              <div className="slider--item__fav__container">
+                <MdOutlineFavoriteBorder size={24} />
+                {/* <MdOutlineFavorite size={24} /> */}
+                <FaCartPlus size={24} />
+              </div>
+              <button className="slider--item__button">
+                <FaCartPlus size={18} /> <span>Add to Card</span>
+              </button>
             </div>
           </SwiperSlide>
         ))}

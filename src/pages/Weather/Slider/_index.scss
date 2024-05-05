@@ -7,6 +7,9 @@
   font-weight: 700 !important;
   letter-spacing: 1px;
   color: #eb06b1;
+  @include breakpoints(largeMiniMobile) {
+    font-size: calc($font_size - 3px);
+  }
 }
 
 .slider__wrapper {
@@ -43,6 +46,7 @@
           height: 220px;
           object-fit: cover;
           border-radius: 10px 10px 0 0;
+          opacity: 0.6;
         }
         .slider--item__content {
           padding: 10px 20px;
@@ -75,6 +79,18 @@
             opacity: 0.8;
           }
         }
+        .slider--item__fav__container {
+          position: absolute;
+          top: 12px;
+          right: 12px;
+          display: flex;
+          align-items: center;
+          column-gap: 4px;
+          //   color: #eb06b1;
+          svg {
+            cursor: pointer;
+          }
+        }
         .slider--item__button {
           position: absolute;
           bottom: 0;
@@ -90,6 +106,10 @@
           color: #eb06b1;
           transition: all ease-in-out 0.3s;
           font-weight: 700 !important;
+          display: flex;
+          align-items: center;
+          column-gap: 8px;
+          justify-content: center;
           &:hover {
             background: #eb06b1;
             color: #fff;
@@ -104,6 +124,10 @@
       opacity: 0.8;
       &:active {
         background: #eb06b1;
+      }
+      @include breakpoints(largeMiniMobile) {
+        width: 10px !important;
+        height: 10px !important;
       }
     }
     .swiper-pagination-bullet-active {
