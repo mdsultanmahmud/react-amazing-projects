@@ -1,0 +1,65 @@
+@import "../../../styles/responsive/breakpoints";
+.calculator__wrapper {
+  display: grid;
+  min-height: 90vh;
+  place-items: center;
+  .calculator__container {
+    width: 420px;
+    padding: 40px 20px;
+    border-radius: 10px;
+    background: #062638;
+    transition: box-shadow 0.3s ease;
+    &:hover {
+      box-shadow: 0 0 20px 5px #eb06b1;
+    }
+    @include breakpoints(largeMiniMobile) {
+      width: 90%;
+    }
+
+    input {
+      background: transparent;
+      width: 100%;
+      height: 50px;
+      font-size: 35px;
+      text-align: right;
+      font-weight: 700 !important;
+      border: none;
+      outline: none;
+      color: #fff;
+      border-bottom: 1px solid rgba($color: #f7f5f5, $alpha: 0.3);
+      &::placeholder {
+        color: white;
+      }
+    }
+    .calculator__btn {
+      padding-top: 30px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      justify-items: center;
+      @include breakpoints(largeMiniMobile) {
+        gap: 5px;
+      }
+      button {
+        background-color: #07121b;
+        color: white;
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        outline: none;
+        border: none;
+        font-size: 22px;
+        cursor: pointer;
+        &:hover {
+          box-shadow: 0 0 20px 2px #eb06b1;
+          color: #eb06b1;
+        }
+        @include breakpoints(largeMiniMobile) {
+          width: 50px;
+          height: 50px;
+          font-size: 18px;
+        }
+      }
+    }
+  }
+}

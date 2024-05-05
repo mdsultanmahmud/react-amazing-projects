@@ -1,0 +1,72 @@
+@import "../../styles/responsive/breakpoints";
+.weather__navbar__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #062638;
+  color: #fff;
+  box-shadow: 0 0 20px 5px #062638;
+  z-index: 99;
+  @include breakpoints(smLaptop) {
+    position: relative;
+    flex-direction: column;
+    align-items: start;
+  }
+  .weather__navbar__logo {
+    padding: 20px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    .weather__navbar__humberguer {
+      display: none;
+      @include breakpoints(smLaptop) {
+        display: block;
+      }
+      span {
+        cursor: pointer;
+      }
+    }
+  }
+
+  .weather__navbar__links {
+    padding: 20px 10px;
+
+    @include breakpoints(smLaptop) {
+      position: absolute;
+      top: 99%;
+      left: -100%;
+      width: 100%;
+      transition: all ease-in-out 0.2s;
+      background-color: rgba($color: #000000, $alpha: 0.4);
+    }
+    ul {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      @include breakpoints(smLaptop) {
+        flex-direction: column;
+        padding-bottom: 20px;
+        margin-top: 40px;
+        align-items: start;
+      }
+      li {
+        word-wrap: nowrap;
+        a {
+          color: #fff;
+          //   padding: 20px 10px !important;
+          text-transform: uppercase;
+          font-weight: 600 !important;
+          transition: all ease-in-out 0.3s;
+          &:hover {
+            color: #eb06b1;
+          }
+        }
+      }
+    }
+  }
+  .active__navbar__links {
+    left: 0%;
+    backdrop-filter: blur(5px);
+  }
+}
